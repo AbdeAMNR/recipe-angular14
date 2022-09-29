@@ -1,0 +1,41 @@
+<div *ngIf="clickedRecipe; else infoText">
+    <div class="row">
+        <div class="col-xs-12">
+            <img [src]="clickedRecipe.imagePath" alt="" class="img-responsive" style="max-width: 150px;">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <h1>{{clickedRecipe.name}}</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="btn-group" appDropdown>
+                <button class="btn btn-primary dropdown-toggle">Manage Recipe <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li class="pointer"><a (click)="AddToShoppingList()">To Shopping List</a></li>
+                    <li class="pointer"><a [routerLink]="['edit']">Edit Recipe</a></li>
+                    <li class="pointer"><a (click)="deleteRecipe(clickedRecipe.id)">Delete Recipe</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <h4>{{clickedRecipe.description}}</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <ul class="list-group">
+                <li *ngFor="let item of clickedRecipe.ingredients" class="list-group-item">{{item.name}}:
+                    {{item.amount}}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<ng-template #infoText>
+    <p>Please select a Recipe</p>
+</ng-template>

@@ -1,0 +1,16 @@
+<div class="row">
+    <div class="col-xs-10">
+        <app-shopping-edit></app-shopping-edit>
+        <hr>
+        <ul class="list-group">
+            <li *ngFor="let ingredient of ingredients; let i =index" class="list-group-item">
+                <div class="spread-content-horizontal">
+                    <div>{{ingredient.name}} ({{ingredient.amount}})</div>
+                    <span (click)="omitIngredident(i)" class="badge" style="cursor: pointer; ">
+                        Delete
+                    </span>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

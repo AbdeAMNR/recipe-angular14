@@ -1,0 +1,10 @@
+<div *ngIf="recipesItems">
+    <a routerLinkActive="active" [routerLink]="['/recipes',recipesItems.id]" class="list-group-item clearfix">
+        <div class="pull-left">
+            <h4 class="list-group-item-heading">{{recipesItems.name}}</h4>
+            <p class="list-group-item-text">{{recipesItems.description}}</p>
+        </div>
+        <span class="pull-right"><img [src]="recipesItems.imagePath" alt="" class="img-responsive"
+                style="max-height: 50px;"></span>
+    </a>
+</div>
